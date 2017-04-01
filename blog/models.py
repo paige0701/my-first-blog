@@ -5,7 +5,7 @@ from django.utils import timezone
 # This is a Post object. using Class to define an object.
 # Post is a name of a model. Always start with a uppercase.
 class Post(models.Model):
-    author =  models.ForeignKey('auth.User')
+    author = models.ForeignKey('auth.User')
 
     # These are properties that model Post has
     title = models.CharField(max_length=200)

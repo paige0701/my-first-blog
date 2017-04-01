@@ -120,3 +120,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+#crispy form comes with bootstrap3 but it is not default configured. Must be configured.
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+LOGIN_URL = 'blog_login'
+LOGOUT_URL = 'blog_logout'
+LOGIN_REDIRECT_URL = 'post_list'
