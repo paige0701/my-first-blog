@@ -13,6 +13,18 @@ def post_list(request):
 
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def post_list_with_category(request, category):
+    print(category)
+    print("$$")
+    p = Post()
+
+    # category = p.get_category_name(category)
+
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date').filter(category=category)
+    # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list_category.html', {'posts': posts})
+
+
 
 def post_detail(request,pk):
     post = get_object_or_404(Post, pk=pk)

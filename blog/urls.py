@@ -7,6 +7,8 @@ from django.contrib.auth.views import logout as logout
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
+
+    url(r'^category/(?P<category>\d+)/$', views.post_list_with_category, name='post_list_with_category'),
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
 
     url(r'^login/$',login, {'template_name':"auth/login.html"}, name='blog_login'),
