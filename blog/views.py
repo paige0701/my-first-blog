@@ -2,9 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.utils import timezone
 from blog.forms import PostForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.views.generic import TemplateView
 
 
 # Create your views here.
+
+def beforelogin(request):
+
+    return render(request, 'beforelogin.html')
 
 
 def post_list(request):
@@ -64,4 +70,3 @@ def post_edit(request,pk):
         form = PostForm(instance=post)
 
     return render(request,'blog/post_edit.html', {'form':form} )
-

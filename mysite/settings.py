@@ -31,15 +31,34 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'crispy_forms',
     'blog',
 
+    # Using comment platform disqus - added to the installed app
+    'disqus',
+
+    # added this to use disqus
+    'django.contrib.sites',
+
+    # adding tagging in to my blog
+    'tagging',
+
 ]
+
+# added this in order to get rid of the bug created by django.contrib.sites
+SITE_ID = 1
+
+# you can find this is in the disqus website setting
+DISQUS_API_KEY = 'DndT7Q6MXyf3Mtf8Hv1CcnMCrHSZhNpGYwdKEIZutpFvgimqwSGxWLTnq4kAoZ0V'
+DISQUS_WEBSITE_SHORTNAME = 'http-127-0-0-1-8000-4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>My Blog - {% block title %}{% endblock %}</title>
+    <title>{% block title %}Paigegram{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {#    <link rel="apple-touch-icon" href="{% static "apple-touch-icon.png" %}">#}
@@ -31,41 +31,25 @@
             <script src="{% static "js/vendor/html5-3.6-respond-1.4.2.min.js" %}"></script>
         <![endif]-->
 </head>
-<body>
+<body  style="background-color: #ce8481">
 <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-{% include "header.html" %}
-<div class="container">
+{% block content %}
+    <div class="container-fluid">
 
     <div class="row">
         <div class="col-md-12">
-            <div>
-                {% block heading %}{% endblock %}
+            <div style="text-align: center">
+                <a href="{%  url 'blog_login' %}" class="btn btn-lg btn-danger">Log in to Start</a>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div>
-                {% block content %}{% endblock %}
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Tag cloud</div>
-                <div class="panel-body">
-                    {% block sidebar %}
-                        {#                        {% tagcloud %}#}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
 
-    {% include "footer.html" %}
+
 </div> <!-- /container -->
+{% endblock %}
+
 {#<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>#}
 {#<script>window.jQuery || document.write('<script src="{% static "jquery/dist/jquery.min.js" %}"><\/script>')</script>#}
 
@@ -84,3 +68,4 @@
 </script>
 </body>
 </html>
+

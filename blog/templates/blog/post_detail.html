@@ -10,7 +10,19 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
         {% if user.is_authenticated %}
-        <a href="{% url 'post_edit'  post.pk %}">Edit this post</a>
+            <a href="{% url 'post_edit'  post.pk %}">Edit this post</a>
         {% endif  %}
+
+
+        <br>
+        <div>
+
+            {% load disqus_tags %}
+
+            {% disqus_show_comments %}
+
+        </div>
+
+        <!-- 여기까지 -->
     </div>
-{% endblock %}
+{% endblock %}w
